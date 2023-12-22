@@ -1,8 +1,8 @@
 import { CogIcon, DocumentTextIcon } from '@sanity/icons'
 
 import contactPage from './pages/contact-page'
-import navigation from './settings/navigation'
 import appearance from './settings/appearance'
+import navigation from './settings/navigation'
 
 export const singletonTypes = {
   pages: {

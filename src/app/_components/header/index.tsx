@@ -1,4 +1,5 @@
 import { getHeader } from '@/sanity/api/getHeader'
+
 import DesktopItems from './desktop-items'
 
 export default async function Header() {

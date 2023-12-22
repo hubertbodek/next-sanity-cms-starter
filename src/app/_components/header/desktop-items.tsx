@@ -6,16 +6,16 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
+
+import { GetHeaderResult } from '@/sanity/api/getHeader'
+
 import CollapsibleItem from './collapsible-item'
-import { Result } from '@/types/sanity'
 
 interface DesktopItemProps {
-  header: Result['header']
+  header: GetHeaderResult['header']
 }
 
 export default function DesktopItems({ header }: DesktopItemProps) {
-  console.log(header)
-
   return (
     <NavigationMenu>
       <NavigationMenuList>

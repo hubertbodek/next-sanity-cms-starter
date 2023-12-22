@@ -1,5 +1,6 @@
-import type { StructureBuilder, ListItemBuilder } from 'sanity/desk'
-import { singletonTypes, singleTypeNames } from './schemas/singletons'
+import type { ListItemBuilder, StructureBuilder } from 'sanity/desk'
+
+import { singleTypeNames, singletonTypes } from './schemas/singletons'
 
 const getSinglePages = (S: StructureBuilder, singletons: any) =>
   singletons.map((singleton: any) =>
