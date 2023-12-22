@@ -14,7 +14,7 @@ const filterDocuments = (listItem: ListItemBuilder) =>
 
 export const structure = (S: StructureBuilder) =>
   S.list()
-    .title('Typy stron')
+    .title('Content')
     .items([
       ...Object.entries(singletonTypes).map(([key, value]) =>
         S.listItem()

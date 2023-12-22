@@ -1,17 +1,21 @@
 import { groq } from 'next-sanity'
 
-import { clientFetch } from '../lib/client'
+import { clientFetch } from '@/sanity/lib/client'
+
+import { LinkModel } from '@/types/sanity'
 
 export const getHeader = async () => {
   const query = groq`*[_type=="navigation_setting"] {
     "header": header[] {
       title,
       link->{
+        _type,
         slug
       },
       dropdown[] {
         title,
         link->{
+          _type,
           slug
         }
       }  
@@ -30,20 +34,11 @@ export type GetHeaderResult = {
 
 export type Header = {
   title: string
-  link: Link | null
+  link: LinkModel | null
   dropdown: Dropdown[] | null
-}
-
-export type Link = {
-  slug: Slug
-}
-
-export type Slug = {
-  current: string
-  _type: string
 }
 
 export type Dropdown = {
   title: string
-  link: Link
+  link: LinkModel
 }

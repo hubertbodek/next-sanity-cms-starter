@@ -1,13 +1,14 @@
+import { getAppearance } from '@/sanity/api/getAppearance'
 import { getHeader } from '@/sanity/api/getHeader'
 
 import DesktopItems from './desktop-items'
 
 export default async function Header() {
-  const data = await getHeader()
+  const [{ header }, { logo }] = await Promise.all([getHeader(), getAppearance()])
 
   return (
-    <header className="bg-primary">
-      <DesktopItems header={data.header} />
+    <header className="container bg-white">
+      <DesktopItems header={header} logo={logo} />
     </header>
   )
 }
