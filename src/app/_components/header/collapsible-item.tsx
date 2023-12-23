@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 
-import SanityLink from '@/components/shared/sanity-link'
+import SanityLink from '@/components/sanity-link'
 import { LinkModel } from '@/types/sanity'
 
 interface CollapsibleItemProps {

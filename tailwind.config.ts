@@ -1,3 +1,7 @@
+import colors from 'tailwindcss/colors'
+
+const primary = colors['lime']
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
@@ -23,7 +27,8 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: primary[600],
+          ...primary,
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {

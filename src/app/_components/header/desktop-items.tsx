@@ -15,7 +15,10 @@ import { GetAppearanceResult } from '@/sanity/api/getAppearance'
 import { GetHeaderResult } from '@/sanity/api/getHeader'
 import { urlForImage } from '@/sanity/lib/image'
 
-import SanityLink from '@/components/shared/sanity-link'
+import SanityLink from '@/components/sanity-link'
+import { HEADER_TRESHOLD } from '@/constants/tresholds'
+import useRange from '@/hooks/useRange'
+import useScrollPosition from '@/hooks/useScrollPosition'
 
 import CollapsibleItem from './collapsible-item'
 
@@ -25,15 +28,20 @@ interface DesktopItemProps {
 }
 
 export default function DesktopItems({ header, logo }: DesktopItemProps) {
+  const scrollPosition = useScrollPosition()
+  const imageWidth = useRange(scrollPosition, 0, HEADER_TRESHOLD, 2.5, 2)
+
   return (
-    <div className="flex h-20 w-full items-center justify-between">
+    <div className="flex w-full items-center justify-between">
       <Link href="/">
         <Image
           src={urlForImage(logo)}
           alt={logo.alt}
           width={100}
           height={100}
-          className="max-w-12"
+          style={{
+            maxWidth: `${imageWidth}rem`,
+          }}
         />
       </Link>
       <NavigationMenu>
