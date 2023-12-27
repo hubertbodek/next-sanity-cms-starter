@@ -8,12 +8,15 @@ import { cn } from '@/lib/class-names'
 export default function HeaderWrapper({ children }: { children: React.ReactNode }) {
   const scrollPosition = useScrollPosition()
   const headerHeight = useRange(scrollPosition, 0, HEADER_TRESHOLD, 6, 3)
+  const boxShadowY = useRange(scrollPosition, 0, HEADER_TRESHOLD, 0, 10)
+  const boxShadowBlur = useRange(scrollPosition, 0, HEADER_TRESHOLD, 0, 15)
 
   return (
     <header
-      className={cn('fixed left-0 top-0 flex w-full items-center border-b bg-white')}
+      className={cn('fixed left-0 top-0 flex w-full items-center bg-white')}
       style={{
         height: `${headerHeight}rem`,
+        boxShadow: `0 ${boxShadowY}px ${boxShadowBlur}px rgba(0, 0, 0, 0.1)`,
       }}
     >
       <div className="container">{children}</div>

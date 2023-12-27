@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
-const content = ['richtext_block', 'image_data']
+const content = ['richtext_block', 'image_data', 'accordion_block']
 
 export default defineType({
   name: 'grid_block',

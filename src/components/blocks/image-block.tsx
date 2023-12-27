@@ -12,7 +12,7 @@ export default function ImageBlock(props: SanityImage) {
     <Image
       src={img.source.src}
       alt={img.source.alt}
-      className={cn(props.contain ? 'object-contain' : 'object-cover')}
+      className={cn('h-[inherit]', props.contain ? 'object-contain' : 'object-cover')}
       width={img.dimensions.width}
       height={img.dimensions.height}
     />

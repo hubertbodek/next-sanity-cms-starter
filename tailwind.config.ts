@@ -1,6 +1,6 @@
 import colors from 'tailwindcss/colors'
 
-const primary = colors['lime']
+const primary = colors['rose']
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

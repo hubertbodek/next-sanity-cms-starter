@@ -23,5 +23,10 @@ export default defineType({
       name: 'button',
       type: 'button',
     }),
+    defineField({
+      title: 'Image',
+      name: 'image',
+      type: 'image_data',
+    }),
   ],
 })
