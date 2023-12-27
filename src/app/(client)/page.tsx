@@ -1,11 +1,13 @@
-import { Separator } from '@/components/ui/separator'
+import { getHomepage } from '@/sanity/api/getHomepage'
 
-import Teaser from '@/components/blocks/teaser'
+import BlockMapper from '@/components/blocks'
 
-export default function Home() {
+export default async function Home() {
+  const data = await getHomepage()
+
   return (
     <main className="min-h-screen">
-      <Teaser title="x" description="x" />
+      <BlockMapper blocks={data.content} />
     </main>
   )
 }

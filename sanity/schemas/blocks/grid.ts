@@ -1,22 +1,23 @@
-import { defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
+
+const content = ['richtext_block', 'image_data']
 
 export default defineType({
   name: 'grid_block',
   title: 'Grid Block',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'columns',
       title: 'Columns',
       type: 'number',
       description: 'Number of columns in the grid',
-    },
-    {
-      name: 'content',
+    }),
+    defineField({
+      name: 'blocks',
       title: 'Content',
-      description: 'Add content to the grid cells',
       type: 'array',
-      of: [{ type: 'teaser_block' }],
-    },
+      of: content.map((type) => ({ type })),
+    }),
   ],
 })

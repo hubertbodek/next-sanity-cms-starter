@@ -9,3 +9,7 @@ import { singletons } from './schemas/singletons'
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [...documents, ...objects, ...blocks, ...singletons, blockContent],
 }
+
+const schemaTypes = schema.types
+
+export default schemaTypes

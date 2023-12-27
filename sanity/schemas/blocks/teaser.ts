@@ -1,10 +1,10 @@
 import { Rule } from '@sanity/types'
-import { defineField } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
-export default defineField({
+export default defineType({
   title: 'Teaser',
   name: 'teaser_block',
-  type: 'document',
+  type: 'object',
   fields: [
     {
       name: 'title',
@@ -18,5 +18,10 @@ export default defineField({
       type: 'text',
       validation: (Rule: Rule) => Rule.required(),
     },
+    defineField({
+      title: 'Button',
+      name: 'button',
+      type: 'button',
+    }),
   ],
 })

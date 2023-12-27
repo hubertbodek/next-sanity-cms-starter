@@ -17,3 +17,7 @@ interface SanityImage extends Image {
 export const urlForImage = (source: SanityImage) => {
   return imageBuilder?.image(source).auto('format').fit('max').url()
 }
+
+export const getImageData = (source: SanityImage) => {
+  return imageBuilder?.image(source).auto('format').fit('max')
+}

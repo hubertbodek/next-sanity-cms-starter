@@ -9,7 +9,7 @@ export interface ImageData extends SanityImageObject {
 }
 
 export default defineType({
-  name: 'imageData',
+  name: 'image_data',
   title: 'Image Data',
   type: 'image',
   fields: [

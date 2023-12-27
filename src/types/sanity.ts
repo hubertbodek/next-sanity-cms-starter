@@ -1,10 +1,12 @@
 import { Image } from 'sanity'
 
+import { Link } from '@/sanity/types/schema'
+
 export interface SanityImage extends Image {
   asset: Asset
   quality: number
   contain: boolean
-  _type: string
+  _type?: string
   alt: string
 }
 export interface Asset {
@@ -12,9 +14,9 @@ export interface Asset {
   _type: string
 }
 
-export interface LinkModel {
+export interface LinkModel extends Omit<Link, '_type'> {
   _type: string
-  slug: Slug
+  slug?: Slug
 }
 
 export interface Slug {

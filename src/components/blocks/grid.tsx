@@ -1,20 +1,18 @@
+import BlockMapper from '@/components/blocks'
+
 interface GridBlockProps {
   columns: number
-  content: any
+  blocks: any
 }
 
-const GridBlock = ({ columns = 2, content }: GridBlockProps) => {
+const Grid = ({ columns = 2, blocks }: GridBlockProps) => {
   const gridTemplateColumns = `repeat(${columns}, 1fr)`
 
   return (
-    <div className="grid gap-4" style={{ gridTemplateColumns }}>
-      {content.map((block: any, index: number) => (
-        <div key={index} className="col-span-1">
-          x
-        </div>
-      ))}
+    <div className="container my-20 grid gap-20 [&>*]:px-0" style={{ gridTemplateColumns }}>
+      <BlockMapper blocks={blocks} />
     </div>
   )
 }
 
-export default GridBlock
+export default Grid

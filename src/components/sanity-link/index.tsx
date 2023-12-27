@@ -4,10 +4,12 @@ import { sanitySitemap } from '@/constants/sitemap'
 import { LinkModel } from '@/types/sanity'
 
 interface SanityLinkProps extends Omit<React.ComponentProps<typeof Link>, 'href'> {
-  href: string | LinkModel | null
+  href?: string | LinkModel | null
 }
 
 const getSegment = (link: LinkModel) => {
+  if (!link.slug?.current) return '/'
+
   const segment = sanitySitemap[link._type] ?? null
 
   if (!segment) {

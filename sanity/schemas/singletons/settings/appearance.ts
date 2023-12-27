@@ -8,7 +8,7 @@ export default defineType({
     defineField({
       name: 'logo',
       title: 'Logo',
-      type: 'imageData',
+      type: 'image_data',
     }),
   ],
 })

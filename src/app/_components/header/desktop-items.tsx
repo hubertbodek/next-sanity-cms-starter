@@ -58,7 +58,7 @@ export default function DesktopItems({ header, logo }: DesktopItemProps) {
                   key={item.title}
                   item={{
                     title: item.title,
-                    link: item.link?.slug.current,
+                    link: item.link?.slug?.current,
                     dropdown: dropdown,
                   }}
                 />
