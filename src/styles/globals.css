@@ -59,12 +59,16 @@
 }
 
 @layer utilities {
+  .block-showcase-preview {
+    @apply outline-1 outline-primary-600/30 transition-all duration-300 hover:outline;
+  }
+
   .text-h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
 
   .text-h2 {
-    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
   }
 
   .text-h3 {

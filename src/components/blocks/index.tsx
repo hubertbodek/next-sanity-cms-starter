@@ -1,6 +1,7 @@
 import blocksMapperFactory from '@/lib/block-factory'
 
 import AccordionBlock from './accordion'
+import CarouselBlock from './carousel'
 import Grid from './grid'
 import ImageBlock from './image-block'
 import RichText from './richtext'
@@ -14,6 +15,7 @@ const blocks = {
   richtext_block: RichText,
   image_data: ImageBlock,
   accordion_block: AccordionBlock,
+  carousel_block: CarouselBlock,
 }
 
 type TypeName = keyof typeof blocks

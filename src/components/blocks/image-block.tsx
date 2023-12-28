@@ -4,7 +4,12 @@ import { cn } from '@/lib/class-names'
 import { prepareImg } from '@/lib/prepare-img'
 import { SanityImage } from '@/types/sanity'
 
-export default function ImageBlock(props: SanityImage) {
+interface ImageBlockProps extends SanityImage {
+  className?: string
+  fill?: boolean
+}
+
+export default function ImageBlock(props: ImageBlockProps) {
   const img = prepareImg(props, props.alt)
   // TODO: add support for fill property
 
@@ -12,9 +17,14 @@ export default function ImageBlock(props: SanityImage) {
     <Image
       src={img.source.src}
       alt={img.source.alt}
-      className={cn('h-[inherit]', props.contain ? 'object-contain' : 'object-cover')}
-      width={img.dimensions.width}
-      height={img.dimensions.height}
+      className={cn(
+        'h-[inherit]',
+        props.contain ? 'object-contain' : 'object-cover',
+        props.className
+      )}
+      width={!props.fill ? img.dimensions.width : undefined}
+      height={!props.fill ? img.dimensions.height : undefined}
+      fill={props.fill}
     />
   )
 }

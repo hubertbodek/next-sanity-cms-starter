@@ -24,7 +24,7 @@ export default function Teaser({ title, description, className, button, image }:
   return (
     <section
       className={cn(
-        'container my-20 flex flex-col items-center gap-x-24 gap-y-16 pt-20 md:flex-row',
+        'container mt-20 flex flex-col items-center gap-x-24 gap-y-16 rounded py-20 md:flex-row',
         className
       )}
     >
@@ -32,7 +32,7 @@ export default function Teaser({ title, description, className, button, image }:
         <h1 className="text-h1 leading-10">{title}</h1>
         <p className="text-paragraph md:!mt-12">{description}</p>
         {button && (
-          <Button className="mt-3" size="lg">
+          <Button className="mt-3" size="lg" asChild>
             <SanityLink href={button?.link}>{button?.title}</SanityLink>
           </Button>
         )}
