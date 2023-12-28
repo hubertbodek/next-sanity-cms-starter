@@ -1,8 +1,15 @@
-export default {
+import { defineField } from 'sanity'
+
+export default defineField({
   name: 'accordion_block',
   title: 'Accordion Block',
   type: 'object',
   fields: [
+    {
+      name: 'text_container',
+      title: 'Text Container',
+      type: 'text_container',
+    },
     {
       name: 'type',
       title: 'Type',
@@ -22,4 +29,4 @@ export default {
       of: [{ type: 'accordion_item' }],
     },
   ],
-}
+})

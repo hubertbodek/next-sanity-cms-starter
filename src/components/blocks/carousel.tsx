@@ -62,7 +62,7 @@ export default function CarouselBlock({ text_container, items, options }: Carous
 
   return (
     <div className="container py-20">
-      <TextContainer {...text_container} />
+      {Boolean(text_container) && <TextContainer {...text_container} />}
       <Carousel
         setApi={setApi}
         plugins={[

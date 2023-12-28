@@ -8,6 +8,11 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'text_container',
+      title: 'Text Container',
+      type: 'text_container',
+    }),
+    defineField({
       name: 'columns',
       title: 'Columns',
       type: 'number',
