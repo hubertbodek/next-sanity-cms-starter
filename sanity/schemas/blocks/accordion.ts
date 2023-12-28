@@ -19,7 +19,7 @@ export default defineField({
           { title: 'Single', value: 'single' },
           { title: 'Multiple', value: 'multiple' },
         ],
-        layout: 'radio', // or 'dropdown'
+        layout: 'radio',
       },
     },
     {
