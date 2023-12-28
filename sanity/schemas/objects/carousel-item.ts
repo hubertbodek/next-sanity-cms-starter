@@ -1,6 +1,6 @@
 import { defineType } from 'sanity'
 
-export const carouselItem = defineType({
+export default defineType({
   name: 'carousel_item',
   title: 'Carousel Item',
   type: 'object',

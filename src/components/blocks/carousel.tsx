@@ -15,6 +15,7 @@ import {
 import { cn } from '@/lib/class-names'
 import { SanityImage } from '@/types/sanity'
 
+import TextContainer, { TextContainerProps } from '../text-container'
 import ImageBlock from './image-block'
 
 interface Item {
@@ -22,9 +23,8 @@ interface Item {
   width: '1/4' | '1/3' | '1/2' | '2/3' | '3/4' | 'full'
 }
 
-// TODO: add support for custom carousel height and gaps
-
 interface CarouselBlockProps {
+  text_container?: TextContainerProps
   options?: {
     align?: 'start' | 'center' | 'end'
     loop?: boolean
@@ -35,7 +35,8 @@ interface CarouselBlockProps {
   items?: Item[]
 }
 
-export default function CarouselBlock({ items, options }: CarouselBlockProps) {
+// TODO: add support for custom carousel height and gaps
+export default function CarouselBlock({ text_container, items, options }: CarouselBlockProps) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -61,6 +62,7 @@ export default function CarouselBlock({ items, options }: CarouselBlockProps) {
 
   return (
     <div className="container py-20">
+      <TextContainer {...text_container} />
       <Carousel
         setApi={setApi}
         plugins={[

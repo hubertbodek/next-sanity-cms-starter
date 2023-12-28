@@ -6,6 +6,11 @@ export default defineType({
   type: 'object',
   fields: [
     {
+      name: 'text_container',
+      title: 'Text Container',
+      type: 'text_container',
+    },
+    {
       name: 'options',
       title: 'Options',
       type: 'object',

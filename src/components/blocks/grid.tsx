@@ -4,16 +4,27 @@ import { cn } from '@/lib/class-names'
 interface GridBlockProps {
   columns: number
   blocks: any
+  height: number
+  align: 'start' | 'center' | 'end'
 }
 
-const Grid = ({ columns = 2, blocks }: GridBlockProps) => {
-  const gridTemplateColumns = `repeat(${columns}, 1fr)`
-
+const Grid = ({ columns = 2, blocks, height, align = 'start' }: GridBlockProps) => {
   // TODO: Add support for responsive columns
   return (
     <section className="py-20">
+      <div className="mb-20">
+        <h3 className="text-h2 text-center">Tech stack</h3>
+        <p className="text-paragraph mx-auto !mt-4 max-w-prose text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet non repellendus debitis.
+          Quas iste reprehenderit perspiciatis ex sunt in dolores?
+        </p>
+      </div>
       <div
-        className={cn('container grid gap-20 [&>*]:px-0', {
+        style={{
+          height: height ? `${height}px` : 'auto',
+          alignItems: align,
+        }}
+        className={cn('container grid gap-20 max-md:!h-auto [&>*]:px-0', {
           'grid-cols-1': columns === 1,
           'grid-cols-1 lg:grid-cols-2': columns === 2,
           'grid-cols-1 lg:grid-cols-3': columns === 3,

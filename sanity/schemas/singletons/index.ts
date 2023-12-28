@@ -3,6 +3,7 @@ import { CogIcon, DocumentTextIcon } from '@sanity/icons'
 import contactPage from './pages/contact-page'
 import homePage from './pages/home-page'
 import appearance from './settings/appearance'
+import banner from './settings/banner'
 import navigation from './settings/navigation'
 
 export const singletonTypes = {
@@ -14,7 +15,7 @@ export const singletonTypes = {
   settings: {
     title: 'Settings',
     icon: CogIcon,
-    schemas: [navigation, appearance],
+    schemas: [navigation, appearance, banner],
   },
 }
 

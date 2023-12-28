@@ -18,7 +18,7 @@ export default function ImageBlock(props: ImageBlockProps) {
       src={img.source.src}
       alt={img.source.alt}
       className={cn(
-        'h-[inherit]',
+        'h-[inherit] max-h-[inherit]',
         props.contain ? 'object-contain' : 'object-cover',
         props.className
       )}
