@@ -8,6 +8,7 @@ import RichText from './richtext'
 import Separator from './separator'
 import Teaser from './teaser'
 
+// TODO: Load blocks dynamically
 const blocks = {
   grid_block: Grid,
   teaser_block: Teaser,
@@ -27,11 +28,7 @@ export type BlockModel = {
 const Block = blocksMapperFactory(blocks)
 
 export default function BlockMapper({ blocks }: { blocks: BlockModel[] }) {
-  return (
-    <>
-      {blocks?.map(({ _type: typeName, ...props }, index) => (
-        <Block key={`${typeName as string}--${index}`} typeName={typeName} props={props} />
-      ))}
-    </>
-  )
+  return blocks?.map(({ _type: typeName, ...props }, index) => (
+    <Block key={`${typeName as string}--${index}`} typeName={typeName} props={props} />
+  ))
 }

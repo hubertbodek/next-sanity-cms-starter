@@ -16,7 +16,7 @@ export default async function MainLayout({ children }: { children: React.ReactNo
         </div>
       )}
       <Header />
-      {children}
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </>
   )

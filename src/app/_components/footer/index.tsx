@@ -22,7 +22,7 @@ export default async function Footer() {
           </Link>
           <div className="text-xl font-bold">Lorem</div>
         </div>
-        <div className="flex h-60 gap-8">
+        <div className="flex h-60 flex-col gap-8 md:flex-row">
           <div>Footer Column</div>
           <div>Footer Column</div>
           <div>Footer Column</div>

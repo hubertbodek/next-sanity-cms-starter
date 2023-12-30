@@ -17,9 +17,11 @@ import { SanityImage } from '@/types/sanity'
 
 import TextContainer, { TextContainerProps } from '../text-container'
 import ImageBlock from './image-block'
+import { TestimonialCard, TestimonialCardProps } from './testimonial-card'
 
 interface Item {
-  content: SanityImage
+  content?: SanityImage
+  testimonial?: TestimonialCardProps
   width: '1/4' | '1/3' | '1/2' | '2/3' | '3/4' | 'full'
 }
 
@@ -61,7 +63,7 @@ export default function CarouselBlock({ text_container, items, options }: Carous
   }, [api])
 
   return (
-    <div className="container py-20">
+    <div className="container py-10 md:py-20">
       {Boolean(text_container) && <TextContainer {...text_container} />}
       <Carousel
         setApi={setApi}
@@ -76,8 +78,13 @@ export default function CarouselBlock({ text_container, items, options }: Carous
         }}
       >
         <CarouselContent className="-ml-12">
-          {items?.map((item) => (
-            <CarouselItem key={item.content.asset._ref} content={item.content} width={item.width} />
+          {items?.map((item, idx) => (
+            <CarouselItem
+              key={`carousel-item-${idx}`}
+              content={item.content}
+              testimonial={item.testimonial}
+              width={item.width}
+            />
           ))}
         </CarouselContent>
         {carouselOptions.arrows && (
@@ -92,21 +99,39 @@ export default function CarouselBlock({ text_container, items, options }: Carous
   )
 }
 
-const CarouselItem = ({ content, width }: Item) => {
+const isImageBlock = (content: any): content is SanityImage => {
+  return content._type === 'image_data'
+}
+
+const CarouselItem = ({ content, testimonial, width }: Item) => {
   const widthClass = {
-    '1/4': 'basis-1/4',
-    '1/3': 'basis-1/3',
-    '1/2': 'basis-1/2',
-    '2/3': 'basis-2/3',
-    '3/4': 'basis-3/4',
+    '1/4': 'md:basis-1/4',
+    '1/3': 'md:basis-1/3',
+    '1/2': 'md:basis-1/2',
+    '2/3': 'md:basis-2/3',
+    '3/4': 'md:basis-3/4',
     full: 'basis-full',
   }
 
+  if (isImageBlock(content)) {
+    return (
+      <CarouselItemUIComponent className={cn('pl-12', widthClass[width])}>
+        <div className="text-h2 relative flex h-64 items-center justify-center overflow-hidden rounded">
+          <ImageBlock {...content} fill />
+        </div>
+      </CarouselItemUIComponent>
+    )
+  }
+
+  if (!testimonial) return null
+
   return (
     <CarouselItemUIComponent className={cn('pl-12', widthClass[width])}>
-      <div className="text-h2 relative flex h-64 items-center justify-center overflow-hidden rounded">
-        <ImageBlock {...content} fill />
-      </div>
+      <TestimonialCard
+        review={testimonial.review}
+        name={testimonial.name}
+        title={testimonial.title}
+      />
     </CarouselItemUIComponent>
   )
 }

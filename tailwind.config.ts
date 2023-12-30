@@ -11,6 +11,7 @@ module.exports = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
+  safelist: ['text-h1', 'text-h2', 'text-h3', 'text-h4', 'text-paragraph'],
   theme: {
     container: {
       center: true,

@@ -25,5 +25,10 @@ export default defineType({
       title: 'Content',
       type: 'image_data',
     },
+    {
+      name: 'testimonial',
+      title: 'Testimonial',
+      type: 'testimonial_card_block',
+    },
   ],
 })

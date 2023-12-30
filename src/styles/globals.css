@@ -103,3 +103,23 @@
     @apply text-sm text-muted-foreground;
   }
 }
+
+@layer components {
+  @media (min-width: 1024px) {
+    .grid-block {
+      grid-template-columns: repeat(var(--grid-columns-desktop), minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .grid-block {
+      grid-template-columns: repeat(var(--grid-columns-tablet), minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-block {
+      grid-template-columns: repeat(var(--grid-columns-mobile), minmax(0, 1fr));
+    }
+  }
+}

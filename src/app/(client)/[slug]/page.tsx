@@ -16,5 +16,5 @@ export default async function GenericPage({ params }: GenericPageProps) {
   const { slug } = params
   const page = await getGenericPage(slug)
 
-  return <main className="mt-32 min-h-screen">{page?.title}</main>
+  return <h1>{page?.title}</h1>
 }

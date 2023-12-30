@@ -6,7 +6,7 @@ export interface SanityImage extends Image {
   asset: Asset
   quality: number
   contain: boolean
-  _type?: string
+  _type?: 'image_data'
   alt: string
 }
 export interface Asset {

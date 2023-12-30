@@ -1,9 +1,6 @@
-import Image from 'next/image'
-
 import { Button } from '@/components/ui/button'
 
 import { cn } from '@/lib/class-names'
-import { prepareImg } from '@/lib/prepare-img'
 import { LinkModel, SanityImage } from '@/types/sanity'
 
 import SanityLink from '../sanity-link'
@@ -24,7 +21,7 @@ export default function Teaser({ title, description, className, button, image }:
   return (
     <section
       className={cn(
-        'container mt-20 flex flex-col items-center gap-x-24 gap-y-16 rounded py-20 md:flex-row',
+        'container flex flex-col items-center gap-x-24 gap-y-16 rounded py-10 md:flex-row md:py-20',
         className
       )}
     >
