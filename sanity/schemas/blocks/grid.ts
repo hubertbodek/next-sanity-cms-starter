@@ -65,4 +65,12 @@ export default defineType({
       of: content.map((type) => ({ type })),
     }),
   ],
+  preview: {
+    select: {
+      title: 'text_container.title',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Grid',
+    }),
+  },
 })

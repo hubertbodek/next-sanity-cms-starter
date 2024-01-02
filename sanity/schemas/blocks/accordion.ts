@@ -29,4 +29,12 @@ export default defineField({
       of: [{ type: 'accordion_item' }],
     },
   ],
+  preview: {
+    select: {
+      title: 'text_container.title',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Accordion',
+    }),
+  },
 })

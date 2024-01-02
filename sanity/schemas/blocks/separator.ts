@@ -12,4 +12,9 @@ export default defineField({
       initialValue: false,
     }),
   ],
+  preview: {
+    prepare: () => ({
+      title: 'Separator',
+    }),
+  },
 })

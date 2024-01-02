@@ -28,17 +28,7 @@ export default defineType({
     defineField({
       name: 'mainImage',
       title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        },
-      ],
+      type: 'image_data',
     }),
     defineField({
       name: 'categories',

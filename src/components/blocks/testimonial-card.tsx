@@ -1,15 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-export interface TestimonialCardProps {
+import { cn } from '@/lib/class-names'
+
+export interface TestimonialCardProps extends React.HTMLAttributes<HTMLDivElement> {
   review: string
   name: string
   title: string
 }
 
 // TODO: Add image
-export function TestimonialCard({ review, name, title }: TestimonialCardProps) {
+export function TestimonialCard({ review, name, title, ...props }: TestimonialCardProps) {
   return (
-    <Card className="relative overflow-hidden p-6">
+    <Card className={cn('relative overflow-hidden p-6', props.className)} {...props}>
       <svg
         className="absolute left-1 top-2 z-10 size-24 text-primary-300/10"
         fill="none"

@@ -13,7 +13,7 @@ export default function HeaderWrapper({ children }: { children: React.ReactNode 
 
   return (
     <header
-      className={cn('sticky left-0 top-0 flex w-full items-center bg-white')}
+      className={cn('sticky left-0 top-0 z-50 flex w-full items-center bg-white')}
       style={{
         height: `${headerHeight}rem`,
         boxShadow: `0 ${boxShadowY}px ${boxShadowBlur}px rgba(0, 0, 0, 0.1)`,

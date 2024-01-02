@@ -8,6 +8,8 @@ export interface SanityImage extends Image {
   contain: boolean
   _type?: 'image_data'
   alt: string
+  maxHeight?: number
+  maxWidth?: number
 }
 export interface Asset {
   _ref: string
@@ -22,4 +24,8 @@ export interface LinkModel extends Omit<Link, '_type'> {
 export interface Slug {
   current: string
   _type: string
+}
+
+export interface Author {
+  name: string
 }

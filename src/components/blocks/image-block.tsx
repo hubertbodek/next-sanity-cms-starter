@@ -18,10 +18,14 @@ export default function ImageBlock(props: ImageBlockProps) {
       src={img.source.src}
       alt={img.source.alt}
       className={cn(
-        'h-[inherit] max-h-[inherit]',
+        !props.maxHeight ? 'h-[inherit] max-h-[inherit]' : '',
         props.contain ? 'object-contain' : 'object-cover',
         props.className
       )}
+      style={{
+        maxWidth: props.maxWidth ?? undefined,
+        maxHeight: props.maxHeight ?? undefined,
+      }}
       width={!props.fill ? img.dimensions.width : undefined}
       height={!props.fill ? img.dimensions.height : undefined}
       fill={props.fill}

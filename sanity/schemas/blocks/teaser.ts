@@ -29,4 +29,12 @@ export default defineType({
       type: 'image_data',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Teaser',
+    }),
+  },
 })

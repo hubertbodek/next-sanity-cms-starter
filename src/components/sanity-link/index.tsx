@@ -1,16 +1,31 @@
 import Link from 'next/link'
 
-import { sanitySitemap } from '@/constants/sitemap'
+import { replaceParams, sanitySitemap } from '@/constants/sitemap'
 import { LinkModel } from '@/types/sanity'
 
 interface SanityLinkProps extends Omit<React.ComponentProps<typeof Link>, 'href'> {
   href?: string | LinkModel | null
 }
 
+// TODO: Refactor this to be more readable
 const getSegment = (link: LinkModel) => {
-  if (!link.slug?.current) return '/'
-
   const segment = sanitySitemap[link._type] ?? null
+
+  if (segment && !link.slug?.current) {
+    return `/${segment}`
+  }
+
+  if (segment && link.slug?.current) {
+    const path = replaceParams(segment, {
+      slug: link.slug.current,
+    })
+
+    return `/${path}`
+  }
+
+  if (!link.slug?.current) {
+    return '/'
+  }
 
   if (!segment) {
     return `/${link.slug.current}`
@@ -22,7 +37,7 @@ const getSegment = (link: LinkModel) => {
 export default function SanityLink({ children, href, ...props }: SanityLinkProps) {
   const getHref = () => {
     if (typeof href === 'string') {
-      return `/${href}`
+      return href
     }
 
     if (href?._type) {

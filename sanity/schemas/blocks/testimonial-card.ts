@@ -25,4 +25,12 @@ export default defineType({
       validation: (Rule: Rule) => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      title: 'review',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Appearance',
+    }),
+  },
 })

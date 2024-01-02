@@ -1,5 +1,6 @@
 import { CogIcon, DocumentTextIcon } from '@sanity/icons'
 
+import blogPage from './pages/blog-page'
 import contactPage from './pages/contact-page'
 import homePage from './pages/home-page'
 import appearance from './settings/appearance'
@@ -10,7 +11,7 @@ export const singletonTypes = {
   pages: {
     title: 'Pages',
     icon: DocumentTextIcon,
-    schemas: [contactPage, homePage],
+    schemas: [contactPage, homePage, blogPage],
   },
   settings: {
     title: 'Settings',

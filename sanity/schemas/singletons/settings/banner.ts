@@ -4,6 +4,11 @@ export default defineType({
   name: 'banner_setting',
   title: 'Banner',
   type: 'document',
+  preview: {
+    prepare: () => ({
+      title: 'Banner',
+    }),
+  },
   fields: [
     defineField({
       name: 'text',

@@ -36,6 +36,20 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
     },
+    {
+      name: 'maxWidth',
+      title: 'Max Width',
+      description:
+        'Max image width in pixels. If not set, the image will be displayed in its original size.',
+      type: 'number',
+    },
+    {
+      name: 'maxHeight',
+      title: 'Max Height',
+      description:
+        'Max image height in pixels. If not set, the image will be displayed in its original size.',
+      type: 'number',
+    },
   ],
   options: {
     hotspot: true,

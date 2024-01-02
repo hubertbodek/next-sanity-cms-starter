@@ -61,4 +61,12 @@ export default defineType({
       of: [{ type: 'carousel_item' }],
     },
   ],
+  preview: {
+    select: {
+      title: 'text_container.title',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Carousel',
+    }),
+  },
 })

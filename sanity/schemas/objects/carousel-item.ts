@@ -31,4 +31,12 @@ export default defineType({
       type: 'testimonial_card_block',
     },
   ],
+  preview: {
+    select: {
+      title: 'testimonial.review',
+    },
+    prepare: ({ title }) => ({
+      title: title ?? 'Carousel Item',
+    }),
+  },
 })

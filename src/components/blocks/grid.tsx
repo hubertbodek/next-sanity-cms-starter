@@ -33,7 +33,9 @@ const Grid = ({
 
   return (
     <section className="container py-10 md:py-20" style={cssVars}>
-      {Boolean(text_container) && <TextContainer {...text_container} />}
+      {Boolean(text_container?.title || text_container?.content) && (
+        <TextContainer {...text_container} />
+      )}
       <div
         style={{
           height: height ? `${height}px` : 'auto',

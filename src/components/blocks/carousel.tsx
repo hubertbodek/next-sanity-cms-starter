@@ -67,11 +67,15 @@ export default function CarouselBlock({ text_container, items, options }: Carous
       {Boolean(text_container) && <TextContainer {...text_container} />}
       <Carousel
         setApi={setApi}
-        plugins={[
-          Autoplay({
-            delay: 1500,
-          }),
-        ]}
+        plugins={
+          carouselOptions.autoplay
+            ? [
+                Autoplay({
+                  delay: 1500,
+                }),
+              ]
+            : undefined
+        }
         opts={{
           align: carouselOptions.align,
           loop: carouselOptions.loop,
@@ -104,7 +108,7 @@ const isImageBlock = (content: any): content is SanityImage => {
 }
 
 const CarouselItem = ({ content, testimonial, width }: Item) => {
-  const widthClass = {
+  const widthClasses = {
     '1/4': 'md:basis-1/4',
     '1/3': 'md:basis-1/3',
     '1/2': 'md:basis-1/2',
@@ -113,9 +117,9 @@ const CarouselItem = ({ content, testimonial, width }: Item) => {
     full: 'basis-full',
   }
 
-  if (isImageBlock(content)) {
+  if (isImageBlock(content) && !testimonial) {
     return (
-      <CarouselItemUIComponent className={cn('pl-12', widthClass[width])}>
+      <CarouselItemUIComponent className={cn('pl-12', widthClasses[width])}>
         <div className="text-h2 relative flex h-64 items-center justify-center overflow-hidden rounded">
           <ImageBlock {...content} fill />
         </div>
@@ -123,17 +127,19 @@ const CarouselItem = ({ content, testimonial, width }: Item) => {
     )
   }
 
-  if (!testimonial) return null
+  if (testimonial) {
+    return (
+      <CarouselItemUIComponent className={cn('pl-12', widthClasses[width])}>
+        <TestimonialCard
+          review={testimonial.review}
+          name={testimonial.name}
+          title={testimonial.title}
+        />
+      </CarouselItemUIComponent>
+    )
+  }
 
-  return (
-    <CarouselItemUIComponent className={cn('pl-12', widthClass[width])}>
-      <TestimonialCard
-        review={testimonial.review}
-        name={testimonial.name}
-        title={testimonial.title}
-      />
-    </CarouselItemUIComponent>
-  )
+  return null
 }
 
 interface CarouselBulletsProps {
