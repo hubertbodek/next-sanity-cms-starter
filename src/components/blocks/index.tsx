@@ -1,6 +1,7 @@
 import blocksMapperFactory from '@/lib/block-factory'
 
 import AccordionBlock from './accordion'
+import ArticleCard from './article-card'
 import CarouselBlock from './carousel'
 import Grid from './grid'
 import ImageBlock from './image-block'
@@ -17,6 +18,7 @@ const blocks = {
   image_data: ImageBlock,
   accordion_block: AccordionBlock,
   carousel_block: CarouselBlock,
+  article_card_block: ArticleCard,
 }
 
 type TypeName = keyof typeof blocks

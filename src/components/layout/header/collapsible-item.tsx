@@ -24,7 +24,7 @@ interface CollapsibleItemProps {
 export default function CollapsibleItem({ item }: CollapsibleItemProps) {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+      <NavigationMenuTrigger className="hover:text-primary">{item.title}</NavigationMenuTrigger>
       <NavigationMenuContent className="px-1 py-2 shadow-lg">
         <ul className="flex min-w-[250px] flex-col">
           {item.dropdown.map((dropdownItem) => (

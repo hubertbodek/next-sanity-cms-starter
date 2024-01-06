@@ -9,7 +9,8 @@ export const getPosts = async () => {
     title,
     mainImage,
     author->{name},
-    slug
+    slug,
+    publishedAt
   }
 `
 
@@ -24,4 +25,5 @@ interface Post {
   mainImage: SanityImage
   author: Author
   slug: Slug
+  publishedAt: string
 }

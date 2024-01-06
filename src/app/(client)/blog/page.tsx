@@ -11,9 +11,15 @@ export default async function BlogPage() {
   return (
     <>
       <BlockMapper blocks={page.content_before} />
-      <div className="container grid grid-cols-fluid">
+      <div className="container my-10 grid grid-cols-fluid gap-8">
         {posts.map((post) => (
-          <ArticleCard key={post.slug.current} post={post} />
+          // Placeholder
+          <>
+            <ArticleCard key={post.slug.current} post={post} />
+            <ArticleCard key={post.slug.current} post={post} />
+            <ArticleCard key={post.slug.current} post={post} />
+            <ArticleCard key={post.slug.current} post={post} />
+          </>
         ))}
       </div>
       <BlockMapper blocks={page.content_after} />

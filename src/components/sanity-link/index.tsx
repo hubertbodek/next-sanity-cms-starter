@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { replaceParams, sanitySitemap } from '@/constants/sitemap'
+import { cn } from '@/lib/class-names'
 import { LinkModel } from '@/types/sanity'
 
 interface SanityLinkProps extends Omit<React.ComponentProps<typeof Link>, 'href'> {
@@ -48,7 +49,7 @@ export default function SanityLink({ children, href, ...props }: SanityLinkProps
   }
 
   return (
-    <Link href={getHref()} {...props}>
+    <Link href={getHref()} className={cn('hover:text-primary', props.className)} {...props}>
       {children}
     </Link>
   )

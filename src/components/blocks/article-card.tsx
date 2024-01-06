@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 
 import { cn } from '@/lib/class-names'
+import { formatDate } from '@/lib/intl'
 import { Author, SanityImage, Slug } from '@/types/sanity'
 
 import SanityLink from '../sanity-link'
@@ -20,12 +21,13 @@ interface ArticleCardProps extends React.HTMLAttributes<HTMLDivElement> {
     mainImage: SanityImage
     author: Author
     slug: Slug
+    publishedAt: string
   }
 }
 
 export default function ArticleCard({ post, ...props }: ArticleCardProps) {
   return (
-    <Card className={cn('max-w-md', props.className)} {...props}>
+    <Card className={cn('max-w-3xl overflow-hidden', props.className)} {...props}>
       <div className="relative h-44">
         <ImageBlock {...post.mainImage} fill />
       </div>
@@ -33,13 +35,11 @@ export default function ArticleCard({ post, ...props }: ArticleCardProps) {
         <span className="text-xs uppercase text-primary">Category</span>
         <CardTitle>{post.title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
+
       <CardFooter className="justify-between">
-        <CardDescription>{post.author.name}</CardDescription>
+        <CardDescription>{formatDate(post.publishedAt)}</CardDescription>
         <Button variant="link" asChild>
-          <SanityLink className="px-0" href={`/blog/${post.slug.current}`}>
+          <SanityLink className="px-0" href={`/blog/${post.slug?.current}`}>
             Read More
           </SanityLink>
         </Button>
